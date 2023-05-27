@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <h3 class="card-header"><img src="{{url_for('static', filename=story.picture)}}" style="width: 150px; height: 100px; "> <u>{{story.title|safe}}</u></h3>
+        <div class="card-body">
+            {{story.body|safe}}
+        </div>
+    </div>
+</div>
+{% endblock %}

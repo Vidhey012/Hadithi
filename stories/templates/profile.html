@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <h2 class="card-header">My Profile.</h2>
+        <center><img src="{{url_for('static',filename=info.profile_pic)}}" style="width: 150px; height: 200px; border-radius: 20px;" alt="Profile Picture"></center>
+        <div class="card-body">
+            <div class="list-group">
+                <label for="" class="list-group-item list-group-item-action">Name <i class="far fa-user"></i> : {{info.name}}</label>
+                <label for="" class="list-group-item list-group-item-action">Email <i class="fas fa-at"></i> : {{info.email}}</label>
+                <label for="" class="list-group-item list-group-item-action">My Bio: {{info.bio}}</label>
+            </div>
+            
+            <a href="/edit_profile/{{info.user_id}}" class="btn btn-success">Edit Profile <i class="far fa-edit"></i></a>
+            <a href="/delete_account/{{info.user_id}}" class="btn btn-danger">Delete Profile <i class="far fa-trash-alt"></i></a>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

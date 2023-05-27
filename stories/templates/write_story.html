@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <h2 class="card-header">Write Story.</h2>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="title" placeholder="Story Title">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="category">
+                        <option>Story Category</option>
+                        <option>Drama</option>
+                        <option>Comedy</option>
+                        <option>Crime & Detective</option>
+                        <option>Horror</option>
+                        <option>Romance</option>
+                        <option>Action & Adventure</option>
+                        <option>Mythology</option>
+                        <option>Sci-Fi</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    
+                    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" placeholder="Story Body"></textarea>
+                    <script>
+                        CKEDITOR.replace('body');
+                    </script>
+                </div>
+                <div class="form-group">
+                    {% if session.logged_in %}
+                        <input class="form-control"  type="text" name="name" placeholder="Author Name">
+                    {% else %}
+                    <fieldset disabled="disabled">
+                        <input class="form-control" id="disabledTextInput" type="text" name="name" placeholder="Please Sign in to embed your author name.">
+                    </fieldset>
+                    {% endif %}
+
+                </div>
+                <div class="form-group">
+                    <label for="">Story image</label>
+                    <input type="file" accept="image/*" name="image" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-success btn-block" value="Share">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
